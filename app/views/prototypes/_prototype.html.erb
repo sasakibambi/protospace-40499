@@ -1,0 +1,18 @@
+<div class="card">
+   <%= link_to image_tag(prototype.image, class: :card__img ), prototype_path(prototype) %> 
+   <%# link_to A, B, (C)
+   image_tag(X, (Y)) %>
+   <%# 表示される内容がA、Aをクリックした時に送られるリクエストがB %>
+  <%# <%= link_to root_path do %>
+    <%# <%= image_tag(prototype.image, class: :card__img) %> 
+  <%# <% end %>  
+  <%# ↑広範囲にリンクを貼りたい時 %>
+  <div class="card__body">
+    <%= link_to prototype.title, prototype_path(prototype), class: :card__title%>
+    <p class="card__summary">
+      <%= link_to prototype.catch_copy %>
+    </p>
+    <%# <%= link_to "#{current_user.name}さん", root_path, class: :card__user %> 
+    <%= link_to "#{prototype.user.name}さん", user_path(prototype.user), class: :card__user %>
+  </div>
+</div>
