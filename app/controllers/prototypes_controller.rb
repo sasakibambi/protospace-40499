@@ -49,7 +49,7 @@ class PrototypesController < ApplicationController
   # 特定のプロトタイプの詳細ページを表示するアクション
   def show
     @comment = Comment.new
-    @comments = @prototype.comments
+    @comments = @prototype.comments.includes(:user)
     # アソシエーションにおいていて１対多の関係だから
     # @prototypeに紐づいたcomments全てを取得
   end
