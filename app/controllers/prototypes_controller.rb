@@ -3,9 +3,10 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, except: [:index, :new, :create]
 # except: [:index, :new, :create]以外のリクエストはset_prototypeメソッドを動かす 
   before_action :authenticate_user!, except: [:index, :show]
-   # except: [:index, :show]以外のリクエストは、ログアウト中のユーザーがリクエストを送った場合は自動的にログインページを表示させる
+   # except: [:index, :show]以外のリクエストは、ログアウト中のユーザーがリクエストを送った場合は自動的にログインページを表示させる.（ログインしていなければ[:index, :show]しか作動しない）
   #  showは詳細！
   before_action :author_confirm, only: [:edit]
+  # 編集は投稿者じゃないとダメ
   
 
   # プロトタイプの一覧を表示するアクション
